@@ -1,0 +1,21 @@
+﻿@model MyVlog.Models.Entity.Work
+@{
+	ViewData["Title"] = "Detail";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="galery">
+	<div class="card">
+		<img src="@Model.ImageURL" alt="">
+
+		<h3>@Model.Title</h3>
+
+		<br />
+
+		<p>@Model.Text</p>
+
+		<br />
+		<small>@Model.Date</small>
+	</div>
+</section>
+

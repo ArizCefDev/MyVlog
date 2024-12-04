@@ -1,8 +1,35 @@
-﻿
+﻿@model List<MyVlog.Models.Entity.Work>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
+<section class="galery">
+	@foreach (var item in Model)
+	{
+		<a href="/Home/Detail/@item.ID">
+			<div class="card">
+				<img src="@item.ImageURL" alt="">
+				@if (item.Title.Length >= 80)
+				{
+					<h3>@item.Title.Remove(79) ...</h3>
+				}
+				else
+				{
+					<h3>@item.Title</h3>
+				}
+				<br />
+				@if (item.Text.Length >= 400)
+				{
+					<p>@item.Text.Remove(399) ...</p>
+				}
+				else
+				{
+					<p>@item.Text</p>
+				}
+				<br />
+				<small>@item.Date</small>
+			</div>
+		</a>
+	}
+</section>
